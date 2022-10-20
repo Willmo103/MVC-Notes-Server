@@ -1,6 +1,36 @@
-// create a default request class to organize the requests
+// create the default headers class for the various requests
 
-class Requests {}
+class Request {
+  default = () => {
+    return {
+      "content-type": "application/json",
+      "Access-Control-Origin": "*",
+    };
+  };
 
-const requests = new Requests();
-module.export = requests;
+  addAuth = (token) => {
+    const headers = this.defaultHeaders();
+    headers["Authorization"] = `Bearer ${token}`;
+    return headers;
+  };
+
+  login = async (data = {}) => {
+    const req = {
+      method: "POST",
+      headers: this.default(),
+      body: data,
+    };
+    await fetch("/login/", req)
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        if (res.ok && res.token) {
+          localStorage.setItem("token", res.token);
+          return;
+        }
+      });
+  };
+}
+const request = new Request();
+module.exports = request;
