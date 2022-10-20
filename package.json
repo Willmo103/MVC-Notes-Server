@@ -1,0 +1,28 @@
+{
+  "name": "local_notes_server",
+  "version": "1.0.0",
+  "description": "A lightweight docker app meant to be run on a RaspberryPi that allows for a repository of notes to be shared across all local machienes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Willmo103/MVC-Notes-Server.git"
+  },
+  "author": "William Morris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Willmo103/MVC-Notes-Server/issues"
+  },
+  "homepage": "https://github.com/Willmo103/MVC-Notes-Server#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0",
+    "pug": "^3.0.2",
+    "sequelize": "^6.25.2"
+  }
+}
